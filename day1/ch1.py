@@ -2,17 +2,19 @@ import time
 
 t1 = time.time()
 
-with open("input.txt") as f:
+with open("i.txt") as f:
     nums = [int(x) for x in f.readlines()]
 
-# FASTEST OPTION
 answer: int
 
+
+# FASTEST OPTION
+
 next(
-    (answer := x*y)
-    for x in nums
-    for y in nums
-    if x + y == 2020
+    (answer := nums[i1]*nums[i2])
+    for i1 in range(len(nums))
+    for i2 in range(i1+1, len(nums))
+    if nums[i1] + nums[i2] == 2020
 )
 
 t2 = time.time()
@@ -26,7 +28,7 @@ print(f"Time spent = {(t2-t1)*1000}ms")
 # VER 1
 # SLOW
 
-# with open("input.txt") as f:
+# with open("i.txt") as f:
 #     nums = [int(x) for x in f.readlines()]
 
 # result = [
@@ -57,4 +59,15 @@ print(f"Time spent = {(t2-t1)*1000}ms")
 #         and x + y == 2020 
 #     )
 # ]
+
+
+# VER 3
+# FOUND BUG WHERE IF 1010 WAS IN INPUTS IT WOULD MULTIPLY ITSELF
+
+# next(
+#     (answer := x*y)
+#     for x in nums
+#     for y in nums
+#     if x + y == 2020
+# )
 
