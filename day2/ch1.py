@@ -1,4 +1,5 @@
 import re
+import os
 
 
 # SOLUTION 1
@@ -30,8 +31,9 @@ import re
 
 # Thank you Lucas An'gov for recommending the regex!
 # SOLUTION 2
+cur_dir = os.path.dirname(__file__)
 
-with open("i.txt") as f:
+with open(f"{cur_dir}/i.txt") as f:
     pattern = re.compile(r"(\d+)-(\d+) ([a-z]): ([a-z]+)")
     valid = [
         pw
@@ -43,4 +45,4 @@ with open("i.txt") as f:
         if int(mx) >= pw.count(l) >= int(mn)
     ]
 
-print(len(valid))
+print(f"The number of valid passwords are: {len(valid)}")

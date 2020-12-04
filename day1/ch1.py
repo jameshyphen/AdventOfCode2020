@@ -1,12 +1,13 @@
 import time
+from uvicorn.logging import logging
+import os
 
-t1 = time.time()
+cur_dir = os.path.dirname(__file__)
 
-with open("i.txt") as f:
+with open(f"{cur_dir}/i.txt") as f:
     nums = [int(x) for x in f.readlines()]
 
 answer: int
-
 
 # FASTEST OPTION
 
@@ -17,10 +18,7 @@ next(
     if nums[i1] + nums[i2] == 2020
 )
 
-t2 = time.time()
-
 print(answer)
-print(f"Time spent = {(t2-t1)*1000}ms")
 
 
 # Old

@@ -1,8 +1,11 @@
 import re
 
+cur_dir = os.path.dirname(__file__)
+
+
 # SOLUTION 1
 
-with open("i.txt") as f:
+with open(f"{cur_dir}/i.txt") as f:
     pattern = re.compile(r"(\d+)-(\d+) ([a-z]): ([a-z]+)")
     valid = [
         pw
@@ -14,4 +17,4 @@ with open("i.txt") as f:
         if len([x for x in range(len(pw)) if x+1 in (int(mn), int(mx)) and pw[x] == l ]) == 1
     ]
 
-print(len(valid))
+print(f"The number of valid passwords are: {len(valid)}")
