@@ -31,5 +31,5 @@ $ python AdventOfCode2020/app_factory.py
 Some of these solutions were inspired by other people.
 
 Thanks to:
-[VinnieVH](https://github.com/VinnieVH/AdventOfCode2020)
-[Lucas An'Gov](https://github.com/lantchou)
+* [VinnieVH](https://github.com/VinnieVH/AdventOfCode2020)
+* [Lucas An'Gov](https://github.com/lantchou)
