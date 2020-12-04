@@ -22,7 +22,9 @@ def run_challenges():
                     days[day].append(ch)
     auto_run = False
     day_input = 0
-
+    print(f"\n\n\n\n")
+    # small change to reload
+    # + autorun
     while(not auto_run):
         with open(f"{cur_dir}/auto_run.json") as json_file:
             data = json.load(json_file)
@@ -31,7 +33,6 @@ def run_challenges():
                 day_input = data["day"]
                 ch_input = data["challenge"]
             
-        print(f"\n\n\n\n")
         print("Welcome to Hyphen's AdventOfCode December!")
         if auto_run:
             print("AUTOMATIC RUN TURNED ON, SKIPPING MENU")

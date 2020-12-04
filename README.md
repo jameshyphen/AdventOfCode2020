@@ -21,6 +21,10 @@ $ uvicorn AdventOfCode2020.app:app --reload
 $ python AdventOfCode2020/app_factory.py
 ```
 
+## Demo
+#### /advent.gif
+![](advent.gif)
+
 
 Some of these solutions were inspired by other people.
 
