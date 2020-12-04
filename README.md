@@ -11,12 +11,14 @@ Fun app I've created with support for uvicorn to run the application faster with
 
 If you wish the code to run a specific Day:Challenge combination, configure the auto_run.json in root directory.
 
-#### 1)You can use Uvicorn with the following code (Live reload):
+
+## How to run
+#### 1) Use Uvicorn with Live Reload:
 ```sh
 $ uvicorn AdventOfCode2020.app:app --reload
 ```
 
-#### 1)You can use run it only using python (No reload):
+#### 1) Run with Python 3+:
 ```sh
 $ python AdventOfCode2020/app_factory.py
 ```
