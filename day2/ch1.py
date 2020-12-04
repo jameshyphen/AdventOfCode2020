@@ -43,4 +43,4 @@ with open("i.txt") as f:
         if int(mx) >= pw.count(l) >= int(mn)
     ]
 
-print(valid)
+print(len(valid))
