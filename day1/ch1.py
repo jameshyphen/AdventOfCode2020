@@ -7,7 +7,7 @@ cur_dir = os.path.dirname(__file__)
 with open(f"{cur_dir}/i.txt") as f:
     nums = [int(x) for x in f.readlines()]
 
-answer: int
+answer: int = 0
 
 # FASTEST OPTION
 
@@ -18,7 +18,7 @@ next(
     if nums[i1] + nums[i2] == 2020
 )
 
-print(answer)
+print(f"The product is: {answer}")
 
 
 # Old

@@ -22,6 +22,7 @@ def run_challenges():
                     days[day].append(ch)
     auto_run = False
     day_input = 0
+    ch_input = 0
     print(f"\n\n\n\n")
     # small change to reload
     # + autorun

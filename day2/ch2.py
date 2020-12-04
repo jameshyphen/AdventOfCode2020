@@ -3,9 +3,7 @@ import os
 
 cur_dir = os.path.dirname(__file__)
 
-
 # SOLUTION 1
-
 with open(f"{cur_dir}/i.txt") as f:
     pattern = re.compile(r"(\d+)-(\d+) ([a-z]): ([a-z]+)")
     valid = [

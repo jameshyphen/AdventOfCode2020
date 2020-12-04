@@ -1,15 +1,11 @@
 import time
-
-print("Day 1: Challenge 2 [START]")
-
-t1 = time.time()
+import os
 
 with open(f"{os.path.dirname(__file__)}/i.txt") as f:
     nums = [int(x) for x in f.readlines()]
 
 # FASTEST OPTION
-answer: int
-
+answer: int = 0
 
 next(
     (answer := nums[i1]*nums[i2]*nums[i3])
@@ -19,11 +15,7 @@ next(
     if nums[i1] + nums[i2] + nums[i3] == 2020
 )
 
-t2 = time.time()
-
-print(answer)
-print(f"Time spent = {(t2-t1)*1000}ms")
-print("Day 1: Challenge 2 [END]")
+print(f"The product is: {answer}")
 
 
 # Old
