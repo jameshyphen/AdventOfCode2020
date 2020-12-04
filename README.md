@@ -6,6 +6,10 @@ Advent of Code is an Advent calendar of small programming puzzles for a variety 
 
 You can participate via the following link:  https://adventofcode.com/2020
 
+
+Most of the solutions here were made explicitely as unreadable as possible and with lots of list comprehensions. I love list comprehensions.
+
+
 ## Features
 Fun app I've created with support for uvicorn to run the application faster with live reload on save.
 
