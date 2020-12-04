@@ -18,12 +18,12 @@ If you wish the code to run a specific Day:Challenge combination, configure the 
 
 ## How to run
 #### 1) Use Uvicorn with Live Reload:
-```bash
+```sh
 $ uvicorn AdventOfCode2020.app:app --reload
 ```
 
 #### 1) Run with Python 3+:
-```bash
+```sh
 $ python AdventOfCode2020/app_factory.py
 ```
 
