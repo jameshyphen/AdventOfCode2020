@@ -1,69 +1,78 @@
 import os
-from datetime import datetime
-from re import X
-from collections import defaultdict
 import re
+from collections import defaultdict
 
 cur_dir = os.path.dirname(__file__)
-raw_passports = []
-# cid optional
-# Every other field mandatory
-req_flds = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
-def validate_reqs(l1):
-    for i in req_flds:
-        if i not in l1:
-            return False
-    return True
-
-def validate_fields(flds):
-    validators = {
-        "byr": "^(19[2-9][0-9]|200[0-2])$",
-        "iyr": "^(201[0-9]|2020)$",
-        "eyr": "^(202[0-9]|2030)$",
-        "hgt": "^(((1[5-8][0-9]|19[0-3])cm|(59|6[0-9]|7[0-6])in))$",
-        "hcl": "^#[0-9a-f]{6}$",
-        "ecl": "^(amb|blu|brn|gry|grn|hzl|oth)$",
-        "pid": "^([0-9]){9}$",
-        "cid": ".*",
-    }
-    for fld in flds:
-        if fld[0] == "cid":
-            continue
-        if bool(re.compile(validators[str(fld[0])]).match(str(fld[1]))) == False:
-            return False
-    return True
 
 with open(f"{cur_dir}/i.txt") as f:
-    raw_passports = f.readlines()
+    codes = f.readlines()
 
 
-passports = defaultdict(list)
-passnr = 0
-nr_of_valid_p = 0
-nr_of_invalid_p = 0
+# My seat should be the only missing one in the list
+# Catch is that some of the seats are missing in the very front and very back
+# so they'll be missing from my list aswell
+# My seat isnt on the very front or very back (that means no FF or BB)
+# And my SeatID +1 and -1 exist in the list
 
-def validate(passport):
-    if validate_reqs([field[0] for field in passport]) and validate_fields(passport):
-        return True
-    return False
-
-[(  passports[passnr].extend([y.split(":") 
-    for y in raw_passports[raw_index].split()]),
-        ((  nr_of_valid_p := nr_of_valid_p + 1)
-            if validate(passports[passnr])
-            else (nr_of_invalid_p := nr_of_invalid_p + 1),
-            passnr := passnr + 1) 
-        if (raw_index+1) == len(raw_passports)
-        else ())
-    if raw_passports[raw_index] != "\n"
-    else (( nr_of_valid_p := nr_of_valid_p + 1)
-            if validate(passports[passnr])
-            else (nr_of_invalid_p := nr_of_invalid_p + 1),
-            passnr := passnr + 1) 
-    for raw_index in range(len(raw_passports)
-)]
+# 1) Filter out all the seats that start as FF or BB
+# 2) Find which Seat IDs x-1 < x < x+1 exist
+# 3) Calculate the row and cols of that seat ID (it's unique)
 
 
-print(f"Total passports are {passnr}")
-print(f"The valid amount of passports is: {nr_of_valid_p}")
-print(f"The invalid amount of passports is: {nr_of_invalid_p}")
+pattern = re.compile("^([F|B]{7})([L|R]{3})$")
+
+cords = []
+
+cur_row: int = 0
+cur_col: int = 0
+cur_id: int = 0
+
+def cal_id(r, c):
+    return r*8+c
+
+
+[(
+            ((cur_row := int("".join([
+            "1"
+                if b_int == "B"
+                else "0"
+                for b_int
+                in row
+            ]), 2),
+            cur_col := int("".join([
+                "1"
+                if b_int == "R"
+                else "0"
+                for b_int
+                in col
+            ]), 2)),
+            cords.append((cur_row, cur_col, cal_id(cur_row, cur_col)))
+            )
+            if row[0] != row[1]
+            else (),
+    )
+    for row, col
+    in [pattern.match(code).groups()
+        for code
+        in codes
+    ]
+]
+
+sor_cords = sorted(cords, key=lambda x: x[2])
+
+prev_id = sor_cords[0][2]
+up_id: int = 0
+dwn_id: int = 0
+
+[
+    (up_id := cur_cord[2], dwn_id := prev_id)
+    if cur_cord[2] == prev_id + 2
+    else (
+        prev_id := cur_cord[2]
+    )
+    for cur_cord
+    in sor_cords    
+]
+
+print(f"The seat left of you is is {dwn_id} and the seat right of you is {up_id}")
+print(f"The answer to the puzzle: The Seat Id belonging to you is {up_id - 1}")

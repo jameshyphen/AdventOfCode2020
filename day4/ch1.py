@@ -1,5 +1,4 @@
 import os
-from re import X
 from collections import defaultdict
 
 cur_dir = os.path.dirname(__file__)
@@ -45,5 +44,5 @@ def validate(passport):
 
 
 print(f"Total number of passports is {passnr}")
-print(f"The valid amount of passports is: {nr_of_valid_p}")
 print(f"The invalid amount of passports is: {nr_of_invalid_p}")
+print(f"The answer to the puzzle: The valid amount of passports is: {nr_of_valid_p}")

@@ -16,4 +16,4 @@ with open(f"{cur_dir}/i.txt") as f:
         if len([x for x in range(len(pw)) if x+1 in (int(mn), int(mx)) and pw[x] == l ]) == 1
     ]
 
-print(f"The number of valid passwords are: {len(valid)}")
+print(f"The answer to the puzzle: The number of valid passports are {len(valid)}")

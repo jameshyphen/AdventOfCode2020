@@ -28,5 +28,5 @@ res_t = sum(ls_fnd)
 res_f = 1
 [res_f := res_f * r for r in ls_fnd]
 [print(f"Found {ls_fnd[x]} trees with x velocy {ls_pths[x][0]} and y velocity {ls_pths[x][1]}.") for x in range(len(ls_pths))]
-print(f"The total product of the found trees: {res_f}")
 print(f"The total sum of the found trees: {res_t}")
+print(f"The answer to the puzzle: The total product of the found trees: {res_f}")

@@ -48,4 +48,4 @@ with open(f"{cur_dir}/i.txt") as f:
         ] if int(mx) >= pw.count(l) >= int(mn)
     ]
 
-print(f"The number of valid passwords are: {len(valid)}")
+print(f"The answer to the puzzle: The number of valid passwords are {len(valid)}")

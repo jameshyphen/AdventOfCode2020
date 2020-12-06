@@ -63,5 +63,5 @@ def validate(passport):
 
 
 print(f"Total passports are {passnr}")
-print(f"The valid amount of passports is: {nr_of_valid_p}")
 print(f"The invalid amount of passports is: {nr_of_invalid_p}")
+print(f"The answer to the puzzle: The valid amount of passports is: {nr_of_valid_p}")

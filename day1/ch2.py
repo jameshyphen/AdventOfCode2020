@@ -15,7 +15,7 @@ next(
     if nums[i1] + nums[i2] + nums[i3] == 2020
 )
 
-print(f"The product is: {answer}")
+print(f"The answer to the puzzle: The product of the THREE numbers with sum(2020) is {answer}")
 
 
 # Old

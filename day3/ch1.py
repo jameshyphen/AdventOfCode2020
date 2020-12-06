@@ -28,4 +28,4 @@ trs_enc = 0
     for v in range(0, len(r_map), vel_y)
 ]
 
-print(f"{trs_enc} out of total {tls_trvl} were trees")
+print(f"The answer to the puzzle: {trs_enc} out of total {tls_trvl} were trees")

@@ -78,5 +78,5 @@ def cal_id(r, c):
     ]
 ]
 
-print(f"Highest row is {hi_row} and highest col is {hi_col}")
-print(f"The answer to the puzzle is: Seat ID {(hi_row*8)+hi_col}")
+print(f"Highest Seat Id row is {hi_row} and col {hi_col}")
+print(f"The answer to the puzzle: Highest Seat ID in this plane is {(hi_row*8)+hi_col}")

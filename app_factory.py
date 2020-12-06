@@ -41,6 +41,12 @@ def run_challenges():
         if not auto_run:
             [print(f"{list(days.keys()).index(k)+1}) To choose {k}") for k in days]
             day_input = int(input(f"What Day would you like to see?\n"))
+            if day_input not in list(range(1, len(days)+1)):
+                print("\nDay does not (yet) exist...\n\nReturning\n")
+                sleep(1)
+                print()
+                continue
+            
         ch_dic = list(days.items())[(day_input-1)]
         chosen_day = ch_dic[0]
         print(f"You chose: {chosen_day}")
@@ -50,7 +56,12 @@ def run_challenges():
         if not auto_run:
             [print(f"{i+1}) To choose {challenges[i]}") for i in range(len(challenges))]
             ch_input = int(input(f"What Challenge would you like to see?\n"))
-        
+            if ch_input not in [1, 2]:
+                print("\nDay does not (yet) exist...\n\nReturning\n")
+                sleep(1)
+                print()
+                continue
+
         chosen_challenge = challenges[(ch_input-1)]
 
         print(f"You chose: {chosen_challenge}")
