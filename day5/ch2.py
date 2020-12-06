@@ -16,7 +16,6 @@ with open(f"{cur_dir}/i.txt") as f:
 
 # 1) Filter out all the seats that start as FF or BB
 # 2) Find which Seat IDs x-1 < x < x+1 exist
-# 3) Calculate the row and cols of that seat ID (it's unique)
 
 
 pattern = re.compile("^([F|B]{7})([L|R]{3})$")
