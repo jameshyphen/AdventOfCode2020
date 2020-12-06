@@ -60,11 +60,10 @@ def cal_id(r, c):
 sor_cords = sorted(cords, key=lambda x: x[2])
 
 prev_id = sor_cords[0][2]
-up_id: int = 0
-dwn_id: int = 0
+fnd_id = []
 
 [
-    (up_id := cur_cord[2], dwn_id := prev_id)
+    (fnd_id.append((prev_id, cur_cord[2])))
     if cur_cord[2] == prev_id + 2
     else (
         prev_id := cur_cord[2]
@@ -73,5 +72,8 @@ dwn_id: int = 0
     in sor_cords    
 ]
 
-print(f"The seat left of you is is {dwn_id} and the seat right of you is {up_id}")
-print(f"The answer to the puzzle: The Seat Id belonging to you is {up_id - 1}")
+if len(fnd_id) == 1:
+    print(f"The seat left of you is is {fnd_id[0][0]} and the seat right of you is {fnd_id[0][1]}")
+    print(f"The answer to the puzzle: The Seat Id belonging to you is {fnd_id[0][1] - 1}")
+else:
+    print(f"Found multiple seats...\nsomething is wrong.")
