@@ -28,7 +28,7 @@ $ python AdventOfCode2020/app_factory.py
 ```
 
 ## Demo
-#### /advent.gif
+#### 
 ![](advent.gif)
 
 
